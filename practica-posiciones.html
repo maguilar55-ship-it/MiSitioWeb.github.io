@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>practica-posiciones</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #fff; color: #222; }
+    h1 { text-align: center; }
+    h2 { border-bottom: 2px solid #ccc; padding-bottom: 5px; margin-top: 40px; }
+    nav a { display: inline-block; margin-bottom: 10px; color: #0645ad; }
+
+    /* Cajas base */
+    .box-orange { background: orange; width: 100px; height: 100px; }
+    .box-blue   { background: lightskyblue; width: 100px; height: 100px; }
+    .container  { background: lightgray; padding: 5px; min-height: 220px; }
+
+    /* 1. STATIC */
+    #static .box-blue { position: static; }
+
+    /* 2. RELATIVE */
+    #relative .box-orange { position: relative; top: 100px; left: 100px; }
+
+    /* 3. ABSOLUTE */
+    #absolute .container { position: relative; }
+    #absolute .box-orange { position: absolute; right: 5px; top: 5px; }
+
+    /* 4. FIXED */
+    #fixed .box-orange {
+      position: fixed; right: 5px; bottom: 5px; z-index: 10;
+      color: #000; font-size: 13px; text-align: center; line-height: 100px;
+    }
+
+    /* 5. STICKY */
+    #sticky .scroll-area { height: 250px; overflow-y: auto; background: #f5f5f5; border: 1px solid #aaa; }
+    #sticky .sticky-bar {
+      position: sticky; top: 0;
+      background: #ffb6b6; color: #fff; text-align: center; padding: 8px;
+    }
+    #sticky .contenido { height: 700px; padding: 10px; }
+  </style>
+</head>
+<body>
+
+  <nav><a href="index.html">&larr; Volver al menú principal</a></nav>
+  <h1>practica-posiciones en CSS</h1>
+  <p>Demostracion de los 5 valores de <code>position</code>: static, relative, absolute, fixed y sticky.</p>
+
+  <section id="static">
+    <h2>1. position: static</h2>
+    <p>Valor por defecto. Las cajas siguen el flujo normal del documento.</p>
+    <div class="container">
+      <div class="box-orange"></div>
+      <div class="box-blue"></div>
+    </div>
+  </section>
+
+  <section id="relative">
+    <h2>2. position: relative</h2>
+    <p>La caja naranja se mueve 100px abajo y a la derecha respecto a su posición normal.</p>
+    <div class="container" style="min-height: 320px;">
+      <div class="box-orange"></div>
+      <div class="box-blue"></div>
+    </div>
+  </section>
+
+  <section id="absolute">
+    <h2>3. position: absolute</h2>
+    <p>La caja naranja sale del flujo y se ubica respecto a su contenedor (que es <code>position: relative</code>).</p>
+    <div class="container">
+      <div class="box-orange"></div>
+      <div class="box-blue"></div>
+    </div>
+  </section>
+
+  <section id="fixed">
+    <h2>4. position: fixed</h2>
+    <p>La caja naranja de la esquina inferior derecha de la pantalla no se mueve al hacer scroll.</p>
+    <div class="container">
+      <div class="box-orange">Fixed</div>
+      <div class="box-blue"></div>
+    </div>
+  </section>
+
+  <section id="sticky">
+    <h2>5. position: sticky</h2>
+    <p>Haz scroll dentro del recuadro: la barra rosa se queda pegada arriba.</p>
+    <div class="scroll-area">
+      <div class="sticky-bar">I am sticky</div>
+      <div class="contenido">Contenido largo para poder hacer scroll...</div>
+    </div>
+  </section>
+
+</body>
+</html>
